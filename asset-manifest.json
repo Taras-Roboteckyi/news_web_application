@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/news_web_application/static/js/main.df576230.js",
+    "main.js": "/news_web_application/static/js/main.6c44e1b3.js",
     "index.html": "/news_web_application/index.html",
-    "main.df576230.js.map": "/news_web_application/static/js/main.df576230.js.map"
+    "main.6c44e1b3.js.map": "/news_web_application/static/js/main.6c44e1b3.js.map"
   },
   "entrypoints": [
-    "static/js/main.df576230.js"
+    "static/js/main.6c44e1b3.js"
   ]
 }
