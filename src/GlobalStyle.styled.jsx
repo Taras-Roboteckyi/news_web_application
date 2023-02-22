@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-
+    scroll-behavior: smooth;
     
   }
   a {
@@ -23,9 +23,10 @@ export const GlobalStyles = createGlobalStyle`
   }
   ul,
   ol {
-    /* list-style: none; */
+    list-style: none;
     margin-top: 0;
     margin-bottom: 0;
+    padding: 0;
   }
   img {
     display: block;
@@ -34,12 +35,19 @@ export const GlobalStyles = createGlobalStyle`
   }
   /*-------------Body--------------*/
   body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #e6e6e6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+   
+    margin: 0;
     width: 100%;
     height: 100%;
     min-height: 100vh;
     
+    ::-webkit-scrollbar {
+    display: none;
+    overflow :'unset';
+}
   }
  
 `;

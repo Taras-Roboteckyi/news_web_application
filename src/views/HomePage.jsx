@@ -1,4 +1,4 @@
-import { Container } from './HomePage.styled';
+import /*  Container */ './HomePage.styled';
 
 export default function HomePage() {
   return <div>Привіт</div>;
