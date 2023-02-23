@@ -9,26 +9,6 @@ export const Navigation = () => {
             Home
           </MenuLink>
         </MenuItem>
-        <MenuItem role="none">
-          <MenuLink role="menuitem" href="#about">
-            About
-          </MenuLink>
-        </MenuItem>
-        <MenuItem role="none">
-          <MenuLink role="menuitem" href="#cases">
-            Cases
-          </MenuLink>
-        </MenuItem>
-        <MenuItem role="none">
-          <MenuLink role="menuitem" href="#blog">
-            Blog
-          </MenuLink>
-        </MenuItem>
-        <MenuItem role="none">
-          <MenuLink role="menuitem" href="#contact">
-            Contact
-          </MenuLink>
-        </MenuItem>
       </NavList>
     </nav>
   );

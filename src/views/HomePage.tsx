@@ -1,5 +1,5 @@
 import /*  Container */ './HomePage.styled';
 
 export default function HomePage() {
-  return <div>Привіт</div>;
+  return (<div> <p>Привіт</p> </div>);
 }
