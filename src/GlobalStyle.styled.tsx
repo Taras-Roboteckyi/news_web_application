@@ -35,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   /*-------------Body--------------*/
   body {
-    font-family: 'Open Sans';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
    

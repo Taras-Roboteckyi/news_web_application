@@ -6,7 +6,7 @@ export const Constants = {
   },
 
   colors: {
-    $styleColor: '#28A745',
+    $styleColor: '#FFEA00',
     $white: '#FFFFFF',
     $textColor: '#333333',
     $placeholderColor: '#808080',
