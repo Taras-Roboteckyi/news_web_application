@@ -10,12 +10,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-/* import { addContacts } from '../../redux/items'; */
+import { createProfile } from '../../redux/authorization/auth-slice';
 
 import /* FormPhoneBook, LabelPhoneBook, InputPhoneBook, ButtonPhoneBook */ './Form.styled';
 
 interface FormElements extends HTMLFormControlsCollection {
-  usernameInput: HTMLInputElement;
+  userNameInput: HTMLInputElement;
   passwordInput: HTMLInputElement;
 }
 
@@ -24,12 +24,12 @@ interface YourFormElement extends HTMLFormElement {
 }
 
 interface InputValue {
-  username: string;
+  userName: string;
   password: string;
 }
 
 const defaultValues: InputValue = {
-  username: '',
+  userName: '',
   password: '',
 };
 
@@ -38,7 +38,7 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleInputChange = event => {
-    console.log('event.currentTarget', event.currentTarget);
+    /* console.log('event.currentTarget', event.currentTarget); */
     const { name, value } = event.currentTarget;
     setFormValues({
       ...formValues,
@@ -49,21 +49,23 @@ export default function LoginForm() {
   const handleSubmit = (event: React.FormEvent<YourFormElement>) => {
     event.preventDefault();
     console.log(formValues);
-    console.log(event.currentTarget.elements.usernameInput.value);
+    /* console.log(event.currentTarget.elements.usernameInput.value); */
     /* const contact = { name }; */
     /*   const fetchContacts = await contactShelfAPI.fetchContacts(); */
     //console.log(fetchContacts);
     /*  const isContact = fetchContacts.find(
       ({ name }) => name.toLowerCase() === contact.name.toLowerCase(),
     ); */
+    const { userName, password } = formValues;
 
-    if (typeof (/*  isContact */ true) === 'undefined') {
-      /* dispatch(addContacts({ name, number })); */
-      toast.success('Congratulations, you have created a new contact!', {
+    if (userName.toLowerCase() === 'admin' && password.toLowerCase() === '12345') {
+      dispatch(createProfile({ ...formValues }));
+
+      toast.success('Congratulations, you have created a new profile!', {
         position: toast.POSITION.TOP_CENTER,
       });
     } else
-      toast.error(`${formValues.username} is already in contacts.`, {
+      toast.error(`Incorrect email address or password.`, {
         position: toast.POSITION.TOP_CENTER,
       });
 
@@ -72,7 +74,7 @@ export default function LoginForm() {
 
   const reset = () => {
     setFormValues({
-      username: '',
+      userName: '',
       password: '',
     });
   };
@@ -82,11 +84,11 @@ export default function LoginForm() {
       <Grid /* container alignItems="center" justify="center" direction="column" */>
         <Grid item>
           <TextField
-            id="usernameInput"
-            name="username"
+            id="userNameInput"
+            name="userName"
             label="Name"
             type="text"
-            value={formValues.username}
+            value={formValues.userName}
             onChange={handleInputChange}
           />
         </Grid>

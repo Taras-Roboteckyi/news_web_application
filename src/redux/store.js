@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import {
   persistStore,
@@ -13,19 +13,37 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { ItemsSlice } from './items';
+import { authReducer } from './authorization';
 
-const persistConfig = {
-  key: 'root',
+const newsPersistConfig = {
+  key: 'news',
+  version: 1,
+  storage,
+  blacklist: ['auth'],
+};
+
+const authPersistConfig = {
+  key: 'auth',
   version: 1,
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, ItemsSlice.reducer);
+/* const persistedNewsReducer = persistReducer(newsPersistConfig, ItemsSlice.reducer); */
+/* const persistedAuthReducer = persistReducer(authPersistConfig, authReducer.reducer);
 
+const art = persistReducer(newsPersistConfig, ItemsSlice.reducer); */
+
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer.reducer),
+  news: ItemsSlice.reducer,
+});
+
+const persistedReducer = persistReducer(newsPersistConfig, rootReducer);
 ////////Store///////////////////
 
 const store = configureStore({
   reducer: persistedReducer,
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
