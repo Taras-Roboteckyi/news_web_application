@@ -1,7 +1,12 @@
+import * as React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 /* import { useDispatch, useSelector } from 'react-redux'; */
 import { /* useEffect, */ Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import PublicRoute from './components/PublicRoute/PublicRoute';
 /* import PrivateRoute from './components/PrivateRoute/PrivateRoute'; */
 import { Layout } from './components/Layout/Layout';
@@ -17,7 +22,8 @@ const LoginPage = CreateLazyChunk('LoginPage', 'LoginPage/LoginPage');
 const DiaryPage = CreateLazyChunk('DiaryPage', 'DiaryPage/DiaryPage');
 const CalculatorPage = CreateLazyChunk('CalculatorPage', 'CalculatorPage/CalculatorPage'); */
 
-import HomePage from './views/HomePage';
+import HomePage from './views/HomePage/HomePage';
+import LoginPage from './views/LoginPage/LoginPage';
 
 export default function App() {
   return (
@@ -36,6 +42,8 @@ export default function App() {
                 } */
                 element={<HomePage />}
               />
+
+              <Route path="login" element={<LoginPage />} />
               {/*  <Route
                 path="registration"
                 element={
@@ -75,7 +83,17 @@ export default function App() {
         </Suspense>
       }
 
-      <Toaster toastOptions={{ duration: 3000 }} />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }
