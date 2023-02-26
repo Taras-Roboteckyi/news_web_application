@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { useState } from 'react';
 
-import { useDispatch } from 'react-redux';
+/* import { useDispatch } from 'react-redux'; */
+import { useAppDispatch } from '../../hooks/reduxHooks';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Grid from '@mui/material/Grid';
@@ -35,7 +36,7 @@ const defaultValues: InputValue = {
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState(defaultValues);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleInputChange = event => {
     /* console.log('event.currentTarget', event.currentTarget); */
@@ -81,7 +82,13 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid /* container alignItems="center" justify="center" direction="column" */>
+      <Grid
+        spacing={0.5}
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="stretch"
+      >
         <Grid item>
           <TextField
             id="userNameInput"

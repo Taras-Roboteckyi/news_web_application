@@ -1,33 +1,24 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import { deepOrange } from '@mui/material/colors';
 
-function stringToColor(string: string) {
-  let hash = 0;
-  let i;
-
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  }
-
-  let color = '#';
-
-  for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.slice(-2);
-  }
-
-  return color;
-}
+import { authSelectors } from '../../../../redux/authorization';
+import { useAppSelector } from '../../../../hooks/reduxHooks';
+import getRandomHexColor from '../../../../utilities/GetRandomHexColor';
 
 function stringAvatar(name: string) {
   return {
-    sx: {
-      bgcolor: stringToColor(name),
-    },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    children: `${name.charAt(0)}`,
   };
 }
 
 export default function BackgroundLetterAvatars() {
-  return <Avatar {...stringAvatar('User name')} sx={{ width: 24, height: 24, fontSize: 14 }} />;
+  const nameUser = useAppSelector(authSelectors.getUserName);
+
+  return (
+    <Avatar
+      {...stringAvatar(nameUser)}
+      sx={{ mr: 1, width: 24, height: 24, fontSize: 14, bgcolor: getRandomHexColor() }}
+    />
+  );
 }

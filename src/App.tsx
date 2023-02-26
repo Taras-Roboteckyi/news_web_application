@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
-/* import PrivateRoute from './components/PrivateRoute/PrivateRoute'; */
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Layout } from './components/Layout/Layout';
 
 /* import { authOperations, authSelectors } from './redux/authorization'; */
@@ -24,6 +24,8 @@ const CalculatorPage = CreateLazyChunk('CalculatorPage', 'CalculatorPage/Calcula
 
 import HomePage from './views/HomePage/HomePage';
 import LoginPage from './views/LoginPage/LoginPage';
+import NewsPage from './views/NewsPage/NewsPage';
+import ProfilePage from './views/ProfilePage/ProfilePage';
 
 export default function App() {
   return (
@@ -35,47 +37,37 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route
                 index
-                /*  element={
-                  <PublicRoute restricted redirectTo="/diary">
-                    <HomePage />
-                  </PublicRoute>
-                } */
-                element={<HomePage />}
-              />
-
-              <Route path="login" element={<LoginPage />} />
-              {/*  <Route
-                path="registration"
                 element={
-                  <PublicRoute restricted redirectTo="/calculator">
-                    <RegistrationPage />
+                  <PublicRoute>
+                    <HomePage />
                   </PublicRoute>
                 }
               />
               <Route
-                path="signin"
+                path="news"
                 element={
-                  <PublicRoute restricted redirectTo="/diary">
+                  <PublicRoute>
+                    <NewsPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted redirectTo="/profile">
                     <LoginPage />
                   </PublicRoute>
                 }
               />
+
               <Route
-                path="diary"
+                path="profile"
                 element={
-                  <PrivateRoute redirectTo="/signin">
-                    <DiaryPage />
+                  <PrivateRoute redirectTo="/">
+                    <ProfilePage />
                   </PrivateRoute>
                 }
               />
-              <Route
-                path="calculator"
-                element={
-                  <PrivateRoute redirectTo="/signin">
-                    <CalculatorPage />
-                  </PrivateRoute>
-                }
-              /> */}
             </Route>
 
             <Route path="*" element={<Navigate to="/" />} />

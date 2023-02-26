@@ -39,6 +39,7 @@ const rootReducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(newsPersistConfig, rootReducer);
+
 ////////Store///////////////////
 
 const store = configureStore({
@@ -53,5 +54,9 @@ const store = configureStore({
 });
 
 let persistor = persistStore(store);
+
+//Redux Toolkit TypeScript
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 export { store, persistor };
