@@ -9,11 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+/* import Box from '@mui/material/Box'; */
 
 import { createProfile } from '../../redux/authorization/auth-slice';
-
-import /* FormPhoneBook, LabelPhoneBook, InputPhoneBook, ButtonPhoneBook */ './Form.styled';
 
 interface FormElements extends HTMLFormControlsCollection {
   userNameInput: HTMLInputElement;
@@ -49,7 +47,7 @@ export default function LoginForm() {
 
   const handleSubmit = (event: React.FormEvent<YourFormElement>) => {
     event.preventDefault();
-    console.log(formValues);
+    /* console.log(formValues); */
     /* console.log(event.currentTarget.elements.usernameInput.value); */
     /* const contact = { name }; */
     /*   const fetchContacts = await contactShelfAPI.fetchContacts(); */
@@ -83,7 +81,7 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid
-        spacing={0.5}
+        spacing={2}
         container
         direction="column"
         justifyContent="flex-start"
@@ -109,10 +107,11 @@ export default function LoginForm() {
             onChange={handleInputChange}
           />
         </Grid>
-
-        <Button variant="contained" color="primary" type="submit">
-          Submit
-        </Button>
+        <Grid item>
+          <Button variant="contained" color="primary" type="submit">
+            Submit
+          </Button>
+        </Grid>
       </Grid>
     </form>
   );

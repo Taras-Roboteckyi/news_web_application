@@ -4,9 +4,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 /* import { useDispatch, useSelector } from 'react-redux'; */
 import { /* useEffect, */ Suspense } from 'react';
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Layout } from './components/Layout/Layout';
@@ -69,23 +66,10 @@ export default function App() {
                 }
               />
             </Route>
-
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
       }
-
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   );
 }

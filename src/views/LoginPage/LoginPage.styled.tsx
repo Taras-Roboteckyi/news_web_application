@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 
 export const BoxContainer = styled(Box)`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
   padding: 40px 0px;
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
