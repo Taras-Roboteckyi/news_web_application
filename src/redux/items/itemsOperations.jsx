@@ -4,7 +4,7 @@ import axios from 'axios';
 
 /* const newsApi = new DummyJsonApi();
 newsApi.fetchAllPosts(); */
-import * as DummyJsonApi from '../../services/JSONPlaceholder_API';
+import * as DummyJsonApi from '../../services/DummyJSON_API';
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
