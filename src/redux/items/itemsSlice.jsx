@@ -1,12 +1,22 @@
 import { createSlice, combineReducers } from '@reduxjs/toolkit';
-import { fetchContacts, /* addContacts, */ deleteContacts } from './itemsOperations';
+import { fetchPosts, /* addContacts, */ deleteContacts } from './itemsOperations';
 
 const itemsReducer = createSlice({
   name: 'items',
   initialState: [],
   extraReducers: {
-    [fetchContacts.fulfilled]: (state, { payload }) => {
-      return (state = [...payload]);
+    [fetchPosts.fulfilled]: (state, { payload }) => {
+      console.log('payload', payload);
+
+      console.log('state', state);
+      console.log('payload.posts', payload.posts);
+      /*  return (state = payload.posts.filter(item => {
+        return state.every(item2 => item2.id === item.id) ? payload.posts : state;
+      })); */
+      /* return (state = [...payload.posts]); */
+      /*  const a = [...state, ...payload.posts];
+      console.log('a', a); */
+      return (state = [...state, ...payload.posts]);
     },
     /*  [addContacts.fulfilled]: (state, { payload }) => {
       return (state = [...state, payload]);

@@ -1,18 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import DummyJsonApi from '../../services/JSONPlaceholder_API';
+import axios from 'axios';
+/* import DummyJsonApi from '../../services/JSONPlaceholder_API'; */
 
-const newsApi = new DummyJsonApi();
-newsApi.fetchAllPosts();
-/* import * as contactShelfAPI from '../../services/JSONPlaceholder_API'; */
+/* const newsApi = new DummyJsonApi();
+newsApi.fetchAllPosts(); */
+import * as DummyJsonApi from '../../services/JSONPlaceholder_API';
 
-export const fetchContacts = createAsyncThunk(
-  'contacts/fetchContacts',
-  async (_, { rejectWithValue }) => {
+export const fetchPosts = createAsyncThunk(
+  'posts/fetchPosts',
+  async (page, { rejectWithValue }) => {
     try {
-      /* const data = await contactShelfAPI.fetchContacts();
-      return data; */
+      const data = await DummyJsonApi.fetchAllPosts(page);
+
+      return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   },
 );
