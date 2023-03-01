@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-import { ItemsSelectors, /* fetchContacts, */ deleteContacts } from '../../redux/items';
-import { fetchPosts } from '../../redux/items';
+import { PostsSelectors, fetchPosts, deletePosts } from '../../redux/posts';
+/* import { fetchPosts, deletePosts } from '../../redux/posts'; */
+
+import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,35 +31,39 @@ import Typography from '@mui/material/Typography';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function generate(element: React.ReactElement) {
-  return [0, 1, 2].map(value =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
 
 const PostList = () => {
-  const data = useSelector(ItemsSelectors.getItems);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  /*  const nameUser = useSelector(authSelectors.getUserName); */
+  const data = useAppSelector(PostsSelectors.getPosts);
+  /* const data = useSelector(PostsSelectors.getPosts); */
+  /*  const dispatch = useDispatch(); */
   const [page, setPage] = useState(0);
-  const [dense, setDense] = useState(false);
-  const [secondary, setSecondary] = useState(false);
-
+  /* const [dense, setDense] = useState(false); */ //mui state
+  /* const [secondary, setSecondary] = useState(false); */ //mui state
+  /*  console.log('secondary', secondary); */
   /* const data = useSelector(state => state.items); */
   /* console.log(data); */
-
-  useEffect(() => {
-    /*  dispatch(fetchPosts(page)); */
-  }, [dispatch, page]);
-
   const skipPage = 10;
 
-  /*  const onDeleteItems = id => dispatch(deleteContacts(id)); */
+  useEffect(() => {
+    dispatch(fetchPosts(page));
+  }, [dispatch, page]);
+
+  /* const generate = (element: React.ReactElement) => {
+    return data.map(({ id, body }) =>
+      React.cloneElement(element, {
+        key: id,
+        primary: body,
+      }),
+    );
+  }; */
+  /* console.log('generate', generate); */
+
+  const onDeletePosts = id => dispatch(deletePosts(id));
 
   const handleClickLoadMore = () => setPage(prevPage => prevPage + skipPage);
 
@@ -67,28 +73,33 @@ const PostList = () => {
         Avatar with text and icon
       </Typography>
       <Demo>
-        <List dense={dense}>
-          {generate(
-            <ListItem
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              }
-            >
-              <ListItemAvatar>
-                <Avatar>
-                  <FolderIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Single-line item"
-                secondary={secondary ? 'Secondary text' : null}
-              />
-            </ListItem>,
-          )}
+        <List /* dense={dense} */>
+          {data.map(({ id, body }) => {
+            return (
+              <ListItem
+                key={id}
+                secondaryAction={
+                  <IconButton edge="end" aria-label="delete" onClick={() => onDeletePosts(id)}>
+                    <DeleteIcon />
+                  </IconButton>
+                }
+              >
+                <ListItemAvatar>
+                  <Avatar>
+                    <FolderIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  id={id}
+                  primary={body}
+                  /* secondary={secondary ? 'Secondary text' : null} */
+                />
+              </ListItem>
+            );
+          })}
         </List>
       </Demo>
+      <button onClick={handleClickLoadMore}></button>
     </Grid>
   );
 };

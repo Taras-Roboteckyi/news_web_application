@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { ItemsSlice } from './items';
+import { PostsSlice } from './posts';
 import { authReducer } from './authorization';
 
 const newsPersistConfig = {
@@ -35,7 +35,7 @@ const art = persistReducer(newsPersistConfig, ItemsSlice.reducer); */
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer.reducer),
-  news: ItemsSlice.reducer,
+  news: PostsSlice.reducer,
 });
 
 const persistedReducer = persistReducer(newsPersistConfig, rootReducer);
@@ -56,7 +56,7 @@ const store = configureStore({
 let persistor = persistStore(store);
 
 //Redux Toolkit TypeScript
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export { store, persistor };

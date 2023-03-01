@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+/* import ReactDOM from 'react-dom'; */
 import { createRoot } from 'react-dom/client';
 
 import { PersistGate } from 'redux-persist/integration/react';
@@ -16,32 +16,14 @@ import { GlobalStyles } from './GlobalStyle.styled';
 const container = document.getElementById('root');
 const root = createRoot(container!); // createRoot(container!) if you use TypeScript
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <ThemeProvider theme={Constants}>
-            <GlobalStyles />
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>);
-
-
-/* ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <ThemeProvider theme={Constants}>
-            <GlobalStyles />
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-); */
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <ThemeProvider theme={Constants}>
+          <GlobalStyles />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
+);

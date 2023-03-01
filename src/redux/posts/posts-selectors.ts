@@ -1,4 +1,4 @@
-export const getItems = state => state.news.items;
+export const getPosts = state => state.news.items.posts;
 /* export const getFilter = state => state.contacts.filter; */
 
 /* export const getVisibleItems = state => {

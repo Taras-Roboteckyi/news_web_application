@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
 /* import authOperations from './auth-operations'; */
 
-interface userState { userName: string, password: string}
+interface UserState { userName: string, password: string}
 
 interface AuthState {
-  user: userState,
+  user: UserState,
 
   isLoggedIn: boolean,
  /*  isFetchingCurrentUser: boolean,
@@ -23,7 +23,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    createProfile(state, action: PayloadAction<userState>) {
+    createProfile(state, action: PayloadAction<UserState>) {
       state.user = { ...action.payload };
       state.isLoggedIn = true;
     },

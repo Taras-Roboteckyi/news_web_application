@@ -23,3 +23,9 @@ export async function fetchAllPosts(page) {
   console.log('data', data);
   return data;
 }
+
+export async function deletePostsByID(postID) {
+  const { data } = await axios.delete(`https://dummyjson.com/posts/${postID}`);
+
+  return data;
+}
