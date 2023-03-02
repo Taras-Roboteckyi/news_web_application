@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-   
+        
     margin: 0;
     width: 100%;
     height: 100%;

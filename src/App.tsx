@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 /* import { useDispatch, useSelector } from 'react-redux'; */
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { /* useEffect, */ Suspense } from 'react';
 
 import PublicRoute from './components/PublicRoute/PublicRoute';
@@ -68,6 +70,17 @@ export default function App() {
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </Suspense>
       }
     </>

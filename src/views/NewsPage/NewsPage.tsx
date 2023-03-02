@@ -1,4 +1,4 @@
-/* import * as React from 'react'; */
+import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PostList from '../../components/PostList/PostList';
