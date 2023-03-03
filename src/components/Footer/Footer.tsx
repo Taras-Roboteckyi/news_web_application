@@ -9,7 +9,7 @@ export const Footer: FC = (): ReactElement => {
         bottom: '0',
         width: '100%',
         height: 'auto',
-        backgroundColor: 'secondary.main',
+        backgroundColor: 'info.dark',
         paddingTop: '1rem',
         paddingBottom: '1rem',
       }}
@@ -18,12 +18,12 @@ export const Footer: FC = (): ReactElement => {
         <Grid container direction="column" alignItems="center">
           <Grid item xs={12}>
             <Typography color="black" variant="h5">
-              React Starter App
+              News Web App
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography color="textSecondary" variant="subtitle1">
-              {`${new Date().getFullYear()} | React | Material UI | React Router`}
+              {`${new Date().getFullYear()} | React | Material UI | React Router | Redux | Reduxjs/toolkit | Typescript`}
             </Typography>
           </Grid>
         </Grid>

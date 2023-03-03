@@ -31,7 +31,7 @@ const resources = {
 
 i18next.use(initReactI18next).init({
   resources,
-  lng: JSON.parse(localStorage.getItem('lng')), //default language
+  lng: localStorage.getItem('lng') || 'en', //default language
 });
 
 export default i18next;

@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 /* import Box from '@mui/material/Box'; */
 
 import { createProfile } from '../../redux/authorization/auth-slice';
+import { InputPassword } from './Form.styled';
 
 interface FormElements extends HTMLFormControlsCollection {
   userNameInput: HTMLInputElement;
@@ -98,7 +99,7 @@ export default function LoginForm() {
           />
         </Grid>
         <Grid item>
-          <TextField
+          <InputPassword
             id="passwordInput"
             name="password"
             label="Password"
