@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
+import { Translation } from 'react-i18next';
 
 import { authSelectors } from '../../../redux/authorization';
 import { useAppSelector } from '../../../hooks/reduxHooks';
@@ -19,9 +20,13 @@ export const Navigation = () => {
       {isLoggedIn ? (
         <UserMenu />
       ) : (
-        <LinkLogin role="login" to="/login">
-          Login
-        </LinkLogin>
+        <Translation ns="header">
+          {t => (
+            <LinkLogin role="login" to="/login">
+              {t('login')}
+            </LinkLogin>
+          )}
+        </Translation>
       )}
     </>
   );

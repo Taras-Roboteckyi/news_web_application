@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -12,14 +13,17 @@ import { Header, HeaderContainer, /* LinkLogin, */ LinkNews } from './AppBar.sty
 import { Container } from '../Сontainer';
 
 import { Navigation } from './Navigation/Navigation';
+import { TranslationMenu } from './TranslationMenu/TranslationMenu';
 
 /* import { useScrollPosition } from '../../hooks/useScrollPosition'; */
 
 const AppBarContainer = () => {
+  const { t } = useTranslation(['header']); //react-i18next
+
   return (
     <Header position="static">
       <Container>
-        <HeaderContainer >
+        <HeaderContainer>
           <Stack direction="row" alignItems="center">
             <IconButton
               size="large"
@@ -31,10 +35,10 @@ const AppBarContainer = () => {
               <Logo />
             </IconButton>
             <LinkNews role="news" to="/news">
-              News
+              {t('news', { ns: ['header'] })}
             </LinkNews>
           </Stack>
-
+          <TranslationMenu />
           <Navigation />
         </HeaderContainer>
       </Container>

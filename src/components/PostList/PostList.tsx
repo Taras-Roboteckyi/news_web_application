@@ -46,6 +46,7 @@ const PostList = () => {
   /* const data = useSelector(state => state.items); */
   /* console.log(data); */
   const skipPage = 10;
+  const dataLimit = data.length > 0 && data.length < 150;
 
   useEffect(() => {
     dispatch(fetchPosts(page));
@@ -63,11 +64,14 @@ const PostList = () => {
 
   const onDeletePosts = id => {
     dispatch(deletePosts(id));
+
     toast.error('Sorry you deleted the contact!', {
       position: toast.POSITION.TOP_CENTER,
     });
   };
   console.log('data.length', data.length);
+  console.log('data', data);
+
   const handleClickLoadMore = () => {
     setLoading(true);
     setPage(prevPage => prevPage + skipPage);
@@ -94,10 +98,10 @@ const PostList = () => {
             pt: 0,
           }}
         >
-          {data.map(({ id, body }) => {
+          {data.map(({ id, body }, index) => {
             return (
               <ListItem
-                key={id}
+                key={index}
                 sx={{
                   border: '1px solid',
                   borderRadius: 2,
@@ -143,9 +147,9 @@ const PostList = () => {
             );
           })}
         </List>
-        {data.length > 0 && data.length % 15 === 0 && (
+        {dataLimit && (
           <LoadingButton onClick={handleClickLoadMore} loading={loading} variant="contained">
-            <span>Send</span>
+            <span>Load more</span>
           </LoadingButton>
         )}
       </Grid>

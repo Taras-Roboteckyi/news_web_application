@@ -44,10 +44,10 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     min-height: 100vh;
     
-    ::-webkit-scrollbar {
+  /*   ::-webkit-scrollbar {
     display: none;
     overflow :'unset';
-}
+} */
   }
  
 `;
