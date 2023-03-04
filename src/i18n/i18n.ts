@@ -5,6 +5,9 @@ import { initReactI18next } from 'react-i18next';
 import translationEnglishHeader from './Translation/English/translationHeader.json';
 import translationUkrainianHeader from './Translation/Ukrainian/translationHeader.json';
 
+import translationEnglishHomePage from './Translation/English/translationHomePage.json';
+import translationUkrainianHomePage from './Translation/Ukrainian/translationHomePage.json';
+
 //Import translation2 file
 /* import translationEnglishSecondFile from './Translation/English/translation2.json'; */
 
@@ -22,10 +25,11 @@ import translationUkrainianHeader from './Translation/Ukrainian/translationHeade
 const resources = {
   en: {
     header: translationEnglishHeader,
-    /* main: translationEnglishSecondFile, */
+    main: translationEnglishHomePage,
   },
   uk: {
     header: translationUkrainianHeader,
+    main: translationUkrainianHomePage,
   },
 };
 

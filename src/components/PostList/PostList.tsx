@@ -14,23 +14,36 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Basic } from './PostList.styled';
 
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
+/* import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'; */
+/* import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar'; */
+/* import ListItemIcon from '@mui/material/ListItemIcon'; */
+/* import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import FormGroup from '@mui/material/FormGroup';
+import IconButton from '@mui/material/IconButton'; */
+/* import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from '@mui/material/Checkbox'; */
 import LoadingButton from '@mui/lab/LoadingButton';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+/* import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography'; */
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
+
+import {
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Avatar,
+  IconButton,
+  Grid,
+  Typography,
+} from '@mui/material';
+
+/* import { FolderIcon, DeleteIcon } from '@mui/icons-material'; */
 
 const PostList = () => {
   const dispatch = useAppDispatch();
@@ -69,8 +82,8 @@ const PostList = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  console.log('data.length', data.length);
-  console.log('data', data);
+  /*  console.log('data.length', data.length);
+  console.log('data', data); */
 
   const handleClickLoadMore = () => {
     setLoading(true);
@@ -137,12 +150,7 @@ const PostList = () => {
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText
-                  id={id}
-                  primary={body}
-
-                  /* secondary={secondary ? 'Secondary text' : null} */
-                />
+                <ListItemText id={id} primary={body} />
               </ListItem>
             );
           })}

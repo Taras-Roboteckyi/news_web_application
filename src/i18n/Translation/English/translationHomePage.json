@@ -1,0 +1,30 @@
+{
+  "welcome": "Welcome to 'News Web Application'",
+  "paragraph": "This app was created for those who follow the 'latest' news in everyday life. :)",
+  "pages": {
+    "paragraph": "It can display the following pages:",
+    "item1": "/ - a main page, the 'Breaking news' logo",
+    "item2": "/news - a page with news. Mock data was used from the site https://dummyjson.com/. On this page, the 'upload more' button was implemented. When you click on it, the posts are uploaded, and there is also the possibility to delete news",
+    "item3": "/profile - a page with arbitrary text that is not accessible without authorization",
+    "item4": "/login - a registration page with a login form that is accessible without authorization"
+  },
+  "links": {
+    "paragraph": "On the website, in the header, a link was implemented (navigation through the application):",
+    "item1": "(/) - to the main page, the 'Breaking news' logo",
+    "item2": "(/news)- News, 'News' link",
+    "item3": "(/profile) - User profile (when clicking on the link Avatar and username). If you try to go to the page (/profile) without authorization, you will be redirected to the main page (/). User authorization information was saved in localStorage",
+    "item4": "(/login) - a button to authorize 'Login' if the user has not been authorized",
+    "item5": "Multilingualism has been implemented for the site menu (Ukrainian - uk, English - en)  by using react-i18next"
+  },
+  "text": {
+    "paragraph": "On the registration page (/login), the login form accepts 'fake' data:",
+    "name": "name: admin",
+    "password": " password: 12345"
+  },
+  "message": "If other data is entered, the message – “The username or password is entered incorrectly” is displayed, and if the correct data is entered, it redirects to the /profile page",
+  "stack": {
+    "paragraph": "The following stack was used for creating the application:",
+    "technologies": "react, react-router-dom, react-redux, @reduxjs/toolkit, typescript",
+    "design": "material.ui was used for responsive design"
+  }
+}

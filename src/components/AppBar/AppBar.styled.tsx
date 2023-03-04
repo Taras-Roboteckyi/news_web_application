@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+/* import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar'; */
+import { AppBar, Toolbar } from '@mui/material';
 
 import HeroImg from '../../images/background.jpg';
 
 export const Header = styled(AppBar)`
   /* padding-top: 22px;
   padding-bottom: 12px; */
-
+  height: 150px;
   background-color: #00000040; // 40 - aльфа канал який додає прозорість
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${HeroImg});
   background-position: center;

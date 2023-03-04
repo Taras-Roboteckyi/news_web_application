@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   /*-------------Body--------------*/
   body {
+    position: relative;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -42,7 +43,11 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
+    
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    
     
   /*   ::-webkit-scrollbar {
     display: none;

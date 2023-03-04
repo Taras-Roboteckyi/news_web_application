@@ -1,17 +1,19 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+/* import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button'; */
 /* import { useDispatch, useSelector } from 'react-redux'; */
+import { Stack, Button } from '@mui/material';
 
 import { authSelectors } from '../../../redux/authorization';
 import { useAppSelector, useAppDispatch } from '../../../hooks/reduxHooks';
 import { logOut } from '../../../redux/authorization/auth-slice';
 
-import { /* Container,  */ LinkProfile, NameUser /* , ButtonExit */ } from './UserMenu.styled';
 import BackgroundLetterAvatars from './Avatar/Avatar';
-import { relative } from 'path';
+/* import { relative } from 'path'; */
+
+import { /* Container,  */ LinkProfile, NameUser /* , ButtonExit */ } from './UserMenu.styled';
 
 export default function UserMenu() {
   const dispatch = useAppDispatch();
@@ -25,7 +27,7 @@ export default function UserMenu() {
       <LinkProfile role="profile" to="/profile">
         <BackgroundLetterAvatars />
         <NameUser variant="body1">
-          {t('welcome', { ns: ['header'] })}, {nameUser}
+          {t('welcome')}, {nameUser}
         </NameUser>
       </LinkProfile>
       <Button
@@ -43,7 +45,7 @@ export default function UserMenu() {
         }}
         onClick={() => dispatch(logOut())}
       >
-        {t('exit', { ns: ['header'] })}
+        {t('exit')}
       </Button>
     </Stack>
   );

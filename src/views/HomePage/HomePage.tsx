@@ -1,13 +1,17 @@
+import { Paper } from '@mui/material';
 import * as React from 'react';
 import Footer from '../../components/Footer/Footer';
+import { TextContainer } from '../../components/TextContainer/TextContainer';
 
-/* import  Container './HomePage.styled'; */
+import { Container } from '../../components/Сontainer';
 
 export default function HomePage() {
   return (
-    <div>
-      Home page - context
+    <>
+      <Container>
+        <TextContainer />
+      </Container>
       <Footer />
-    </div>
+    </>
   );
 }

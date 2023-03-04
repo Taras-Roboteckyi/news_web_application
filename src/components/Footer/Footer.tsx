@@ -1,17 +1,12 @@
 import React, { FC, ReactElement } from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
+import { FooterContainer } from './Footer.styled';
 
 export const Footer: FC = (): ReactElement => {
   return (
-    <Box
+    <FooterContainer
       sx={{
-        position: 'absolute',
-        bottom: '0',
-        width: '100%',
-        height: 'auto',
         backgroundColor: 'info.dark',
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
       }}
     >
       <Container maxWidth="lg">
@@ -28,7 +23,7 @@ export const Footer: FC = (): ReactElement => {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </FooterContainer>
   );
 };
 

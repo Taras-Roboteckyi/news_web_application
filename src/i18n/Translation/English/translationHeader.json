@@ -2,5 +2,7 @@
   "news": "News",
   "login": "Login",
   "welcome": "Welcome",
-  "exit": "Sign out"
+  "exit": "Sign out",
+  "english": "English",
+  "ukrainian": "Ukrainian"
 }

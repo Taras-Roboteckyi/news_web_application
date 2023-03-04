@@ -2,12 +2,14 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import InputLabel from '@mui/material/InputLabel';
+/* import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+import FormControl from '@mui/material/FormControl'; */
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Avatar from '@mui/material/Avatar';
-import { AvatarGroup } from '@mui/material';
+/* import Avatar from '@mui/material/Avatar';
+import { AvatarGroup } from '@mui/material'; */
+
+import { MenuItem, FormControl, Avatar, AvatarGroup } from '@mui/material';
 
 import flagIconGB from '../../../images/flag_united_kingdom.png';
 import flagIconUK from '../../../images/flag_ukraine.png';
@@ -17,7 +19,7 @@ import { LanguageContainer, NameLanguage } from './TranslationMenu.styled';
 const LocalStorageKey = 'lng';
 
 export const TranslationMenu = () => {
-  const { i18n } = useTranslation(); //react-i18next
+  const { t, i18n } = useTranslation(); //react-i18next
   const [age, setAge] = useState(localStorage.getItem(LocalStorageKey) || '');
 
   /*   useEffect(() => {
@@ -91,7 +93,7 @@ export const TranslationMenu = () => {
                 src={flagIconGB}
                 sx={{ width: 16, height: 16, marginRight: 1 }}
               />
-              <NameLanguage variant="body2">English</NameLanguage>
+              <NameLanguage variant="body2">{t('english', { ns: ['header'] })}</NameLanguage>
             </AvatarGroup>
           </MenuItem>
           <MenuItem value="uk">
@@ -101,7 +103,7 @@ export const TranslationMenu = () => {
                 src={flagIconUK}
                 sx={{ width: 16, height: 16, marginRight: 1 }}
               />
-              <NameLanguage variant="body2">Ukrainian</NameLanguage>
+              <NameLanguage variant="body2">{t('ukrainian', { ns: ['header'] })}</NameLanguage>
             </AvatarGroup>
           </MenuItem>
         </Select>

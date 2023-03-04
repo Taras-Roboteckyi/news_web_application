@@ -6,10 +6,11 @@ import { useState } from 'react';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Grid from '@mui/material/Grid';
+/* import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'; */
 /* import Box from '@mui/material/Box'; */
+import { Grid, TextField, Button } from '@mui/material';
 
 import { createProfile } from '../../redux/authorization/auth-slice';
 import { InputPassword } from './Form.styled';
