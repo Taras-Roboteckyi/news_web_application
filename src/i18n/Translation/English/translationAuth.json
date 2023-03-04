@@ -1,0 +1,13 @@
+{
+  "login": {
+    "paragraph": "Sign in to the app so we can save your data",
+    "name": "Name",
+    "password": "Password",
+    "button": "Submit",
+    "success": "Congratulations, you have successfully logged in!",
+    "error": "Username or password entered incorrectly"
+  },
+  "profile": {
+    "paragraph": "Hello! Thank you for the authorization. Glad to see you again on our app."
+  }
+}

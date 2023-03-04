@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import Typography from '@mui/material/Typography';
 
 import LoginForm from '../../components/Form/Form';
@@ -9,6 +11,8 @@ import Footer from '../../components/Footer/Footer';
 import { BoxContainer } from './LoginPage.styled';
 
 export default function LoginPage() {
+  const { t } = useTranslation(['auth']); //react-i18next
+
   return (
     <>
       <Container>
@@ -20,7 +24,7 @@ export default function LoginPage() {
               fontSize: 20,
             }}
           >
-            Sign in to the app so we can save your data
+            {t('login.paragraph')}
           </Typography>
 
           <LoginForm />

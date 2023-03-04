@@ -43,7 +43,7 @@ const persistedReducer = persistReducer(newsPersistConfig, rootReducer);
 ////////Store///////////////////
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

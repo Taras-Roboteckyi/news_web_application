@@ -35,13 +35,12 @@ export const TranslationMenu = () => {
   if (localStorage.getItem(LocalStorageKey) === null) {
     localStorage.setItem(LocalStorageKey, JSON.stringify('en'));
     setAge('en');
-    return;
   }
   /*  const onClickLanguageChange = (e: any) => {
     const language = e.target.value;
     i18n.changeLanguage(language); //change the language
   }; */
-  console.log('age', age);
+  /* console.log('age', age); */
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
     const language = event.target.value;

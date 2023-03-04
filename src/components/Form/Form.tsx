@@ -1,6 +1,7 @@
 import * as React from 'react';
-
 import { useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
 
 /* import { useDispatch } from 'react-redux'; */
 import { useAppDispatch } from '../../hooks/reduxHooks';
@@ -37,6 +38,7 @@ const defaultValues: InputValue = {
 export default function LoginForm() {
   const [formValues, setFormValues] = useState(defaultValues);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation(['auth']);
 
   const handleInputChange = event => {
     /* console.log('event.currentTarget', event.currentTarget); */
@@ -62,11 +64,11 @@ export default function LoginForm() {
     if (userName.toLowerCase() === 'admin' && password.toLowerCase() === '12345') {
       dispatch(createProfile({ ...formValues }));
 
-      toast.success('Congratulations, you have created a new profile!', {
+      toast.success('Congratulations, you have successfully logged in!', {
         position: toast.POSITION.TOP_CENTER,
       });
     } else
-      toast.error(`Incorrect email address or password.`, {
+      toast.error(`Username or password entered incorrectly`, {
         position: toast.POSITION.TOP_CENTER,
       });
 
@@ -93,7 +95,7 @@ export default function LoginForm() {
           <TextField
             id="userNameInput"
             name="userName"
-            label="Name"
+            label={t('login.name')}
             type="text"
             value={formValues.userName}
             onChange={handleInputChange}
@@ -103,7 +105,7 @@ export default function LoginForm() {
           <InputPassword
             id="passwordInput"
             name="password"
-            label="Password"
+            label={t('login.password')}
             type="number"
             value={formValues.password}
             onChange={handleInputChange}
@@ -111,7 +113,7 @@ export default function LoginForm() {
         </Grid>
         <Grid item>
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            {t('login.button')}
           </Button>
         </Grid>
       </Grid>

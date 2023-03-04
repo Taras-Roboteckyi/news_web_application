@@ -8,6 +8,9 @@ import translationUkrainianHeader from './Translation/Ukrainian/translationHeade
 import translationEnglishHomePage from './Translation/English/translationHomePage.json';
 import translationUkrainianHomePage from './Translation/Ukrainian/translationHomePage.json';
 
+import translationEnglishAuth from './Translation/English/translationAuth.json';
+import translationUkrainianAuth from './Translation/Ukrainian/translationAuth.json';
+
 //Import translation2 file
 /* import translationEnglishSecondFile from './Translation/English/translation2.json'; */
 
@@ -26,10 +29,12 @@ const resources = {
   en: {
     header: translationEnglishHeader,
     main: translationEnglishHomePage,
+    auth: translationEnglishAuth,
   },
   uk: {
     header: translationUkrainianHeader,
     main: translationUkrainianHomePage,
+    auth: translationUkrainianAuth,
   },
 };
 

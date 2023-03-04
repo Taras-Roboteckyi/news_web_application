@@ -20,6 +20,7 @@ export const Header = styled(AppBar)`
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     /* padding-bottom: 22px; */
+    height: 100px;
     padding-top: 15px;
     padding-bottom: 15px;
   }

@@ -10,7 +10,7 @@ export const LanguageContainer = styled(Box)`
   margin: 15px 0px 10px 0px;
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
-    margin: 0;
+    margin-top: 15px;
   }
 `;
 
