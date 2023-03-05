@@ -1,16 +1,32 @@
 {
   "files": {
     "main.css": "/news_web_application/static/css/main.b3eeeea7.css",
-    "main.js": "/news_web_application/static/js/main.a7985698.js",
+    "main.js": "/news_web_application/static/js/main.5399f12a.js",
+    "static/js/447.d7d851e7.chunk.js": "/news_web_application/static/js/447.d7d851e7.chunk.js",
+    "static/js/731.88e4e514.chunk.js": "/news_web_application/static/js/731.88e4e514.chunk.js",
+    "static/js/564.834ff72c.chunk.js": "/news_web_application/static/js/564.834ff72c.chunk.js",
+    "static/js/103.71c8e9dd.chunk.js": "/news_web_application/static/js/103.71c8e9dd.chunk.js",
+    "static/js/977.7d4f490f.chunk.js": "/news_web_application/static/js/977.7d4f490f.chunk.js",
+    "static/js/136.ebc9656a.chunk.js": "/news_web_application/static/js/136.ebc9656a.chunk.js",
+    "static/js/631.8d6db26b.chunk.js": "/news_web_application/static/js/631.8d6db26b.chunk.js",
+    "static/js/852.ac72fe58.chunk.js": "/news_web_application/static/js/852.ac72fe58.chunk.js",
     "static/media/background.jpg": "/news_web_application/static/media/background.beebee981878d14c232f.jpg",
     "static/media/logo_news.png": "/news_web_application/static/media/logo_news.39676a2ce07fe9b65abd.png",
     "static/media/flag_united_kingdom.png": "/news_web_application/static/media/flag_united_kingdom.d0f71b48084afdae6176.png",
     "index.html": "/news_web_application/index.html",
     "main.b3eeeea7.css.map": "/news_web_application/static/css/main.b3eeeea7.css.map",
-    "main.a7985698.js.map": "/news_web_application/static/js/main.a7985698.js.map"
+    "main.5399f12a.js.map": "/news_web_application/static/js/main.5399f12a.js.map",
+    "447.d7d851e7.chunk.js.map": "/news_web_application/static/js/447.d7d851e7.chunk.js.map",
+    "731.88e4e514.chunk.js.map": "/news_web_application/static/js/731.88e4e514.chunk.js.map",
+    "564.834ff72c.chunk.js.map": "/news_web_application/static/js/564.834ff72c.chunk.js.map",
+    "103.71c8e9dd.chunk.js.map": "/news_web_application/static/js/103.71c8e9dd.chunk.js.map",
+    "977.7d4f490f.chunk.js.map": "/news_web_application/static/js/977.7d4f490f.chunk.js.map",
+    "136.ebc9656a.chunk.js.map": "/news_web_application/static/js/136.ebc9656a.chunk.js.map",
+    "631.8d6db26b.chunk.js.map": "/news_web_application/static/js/631.8d6db26b.chunk.js.map",
+    "852.ac72fe58.chunk.js.map": "/news_web_application/static/js/852.ac72fe58.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3eeeea7.css",
-    "static/js/main.a7985698.js"
+    "static/js/main.5399f12a.js"
   ]
 }

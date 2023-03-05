@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknews_web_application=self.webpackChunknews_web_application||[]).push([[564],{4564:function(n,e,i){i.r(e),i.d(e,{BoxContainer:function(){return r}});var t,a=i(168),p=i(7691),c=i(4554),r=(0,p.ZP)(c.Z)(t||(t=(0,a.Z)(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n\n  padding: 40px 0px;\n\n  @media screen and (min-width: ",") {\n    padding: 80px 0px;\n  }\n"])),(function(n){return n.theme.breakpoints.tablet}))}}]);
+//# sourceMappingURL=564.834ff72c.chunk.js.map
