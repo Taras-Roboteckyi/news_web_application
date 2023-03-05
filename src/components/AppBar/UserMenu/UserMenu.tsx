@@ -1,9 +1,7 @@
 import * as React from 'react';
+
 import { useTranslation } from 'react-i18next';
 
-/* import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button'; */
-/* import { useDispatch, useSelector } from 'react-redux'; */
 import { Stack, Button } from '@mui/material';
 
 import { authSelectors } from '../../../redux/authorization';
@@ -11,16 +9,15 @@ import { useAppSelector, useAppDispatch } from '../../../hooks/reduxHooks';
 import { logOut } from '../../../redux/authorization/auth-slice';
 
 import BackgroundLetterAvatars from './Avatar/Avatar';
-/* import { relative } from 'path'; */
 
-import { /* Container,  */ LinkProfile, NameUser /* , ButtonExit */ } from './UserMenu.styled';
+import { LinkProfile, NameUser } from './UserMenu.styled';
 
 export default function UserMenu() {
   const dispatch = useAppDispatch();
-  /*  const nameUser = useSelector(authSelectors.getUserName); */
+
   const nameUser = useAppSelector(authSelectors.getUserName);
+
   const { t } = useTranslation(['header']); //react-i18next
-  //console.log(nameUser);
 
   return (
     <Stack direction="row" spacing={1} alignItems="center">

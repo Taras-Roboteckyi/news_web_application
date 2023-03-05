@@ -10,10 +10,7 @@ import UserMenu from '../UserMenu/UserMenu';
 import { LinkLogin } from './Navigation.styled';
 
 export const Navigation = () => {
-  /* const isLoggedIn = useSelector(authSelectors.getIsLoggedIn); */
   const isLoggedIn = useAppSelector(authSelectors.getIsLoggedIn);
-  /* console.log(isLoggedIn); */
-  /* const isLoggedIn = false; */
 
   return (
     <>

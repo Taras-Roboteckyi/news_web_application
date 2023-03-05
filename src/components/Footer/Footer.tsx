@@ -1,5 +1,7 @@
 import React, { FC, ReactElement } from 'react';
-import { Box, Container, Grid, Typography } from '@mui/material';
+
+import { Container, Grid, Typography } from '@mui/material';
+
 import { FooterContainer } from './Footer.styled';
 
 export const Footer: FC = (): ReactElement => {

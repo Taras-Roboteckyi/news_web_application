@@ -2,12 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-/* import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl'; */
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-/* import Avatar from '@mui/material/Avatar';
-import { AvatarGroup } from '@mui/material'; */
 
 import { MenuItem, FormControl, Avatar, AvatarGroup } from '@mui/material';
 
@@ -23,25 +18,11 @@ export const TranslationMenu = () => {
   const { t, i18n } = useTranslation(); //react-i18next
   const [age, setAge] = useState(localStorage.getItem(LocalStorageKey) || '');
 
-  /*   useEffect(() => {
-    const a = window.localStorage.getItem('lng');
-    console.log('a', a);
-    setAge(a);
-  }, [age]); */
-
-  /* useEffect(() => {
-     localStorage.setItem('lng', JSON.stringify(age));
-  }, [age]); */
-
   if (localStorage.getItem(LocalStorageKey) === null) {
     localStorage.setItem(LocalStorageKey, JSON.stringify(LanguageKey));
     setAge(LanguageKey);
   }
-  /*  const onClickLanguageChange = (e: any) => {
-    const language = e.target.value;
-    i18n.changeLanguage(language); //change the language
-  }; */
-  /* console.log('age', age); */
+
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
     const language = event.target.value;
@@ -50,16 +31,6 @@ export const TranslationMenu = () => {
     i18n.changeLanguage(language); //change the language
   };
 
-  /* const onClickLanguageChange = (e: any) => {
-    const language = e.target.value;
-    i18n.changeLanguage(language); //change the language
-  }; */
-
-  /*   const changeLanguage = (language: string) => () => {
-    i18n.changeLanguage(language); //change the language
-    localStorage.setItem('lng', language);
-  };
- */
   return (
     <LanguageContainer>
       <FormControl fullWidth>

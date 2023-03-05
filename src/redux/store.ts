@@ -28,17 +28,12 @@ const authPersistConfig = {
   storage,
 };
 
-/* const persistedNewsReducer = persistReducer(newsPersistConfig, ItemsSlice.reducer); */
-/* const persistedAuthReducer = persistReducer(authPersistConfig, authReducer.reducer);
-
-const art = persistReducer(newsPersistConfig, ItemsSlice.reducer); */
-
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer.reducer),
   news: PostsSlice.reducer,
 });
 
-const persistedReducer = persistReducer(newsPersistConfig, rootReducer);
+const persistedReducer = persistReducer(newsPersistConfig, rootReducer); //do not use, because the posts are not updated
 
 ////////Store///////////////////
 

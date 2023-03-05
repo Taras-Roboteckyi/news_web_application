@@ -15,14 +15,10 @@ export const LinkHome = styled(NavLink)`
     filter: brightness(120%); // Змінює прозорість Лого
   }
   img {
-    /* margin-right: 8px; */
     width: 70px;
-    /*  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-      width: 70px;
-    } */
+
     @media (min-width: ${props => props.theme.breakpoints.desktop}) {
       width: 80px;
     }
-    /* height: 31px; */
   }
 `;

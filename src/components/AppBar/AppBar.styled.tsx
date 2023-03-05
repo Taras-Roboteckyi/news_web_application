@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-/* import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar'; */
 import { AppBar, Toolbar } from '@mui/material';
 
 import HeroImg from '../../images/background.jpg';
 
 export const Header = styled(AppBar)`
-  /* padding-top: 22px;
-  padding-bottom: 12px; */
   height: 150px;
   background-color: #00000040; // 40 - aльфа канал який додає прозорість
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${HeroImg});
@@ -19,28 +15,20 @@ export const Header = styled(AppBar)`
   transition: background-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    /* padding-bottom: 22px; */
     height: 100px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
-
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    /* padding-top: 35px; */
-  }
 `;
 
 export const HeaderContainer = styled(Toolbar)`
-  /*  padding-left: 20px;
-  padding-right: 20px; */
-  /* height: 80px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    /* height: fit-content; */
     padding: 0;
     flex-direction: row;
     align-items: center;

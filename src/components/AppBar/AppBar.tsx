@@ -1,22 +1,14 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-/* import Stack from '@mui/material/Stack'; */
-/* import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button'; */
-/* import IconButton from '@mui/material/IconButton'; */
-/* import MenuIcon from '@mui/icons-material/Menu'; */
 import { Stack, IconButton } from '@mui/material';
 
 import { Logo } from './Logo/Logo';
-import { Header, HeaderContainer, /* LinkLogin, */ LinkNews } from './AppBar.styled';
 import { Container } from '../Сontainer';
-
 import { Navigation } from './Navigation/Navigation';
 import { TranslationMenu } from './TranslationMenu/TranslationMenu';
 
-/* import { useScrollPosition } from '../../hooks/useScrollPosition'; */
+import { Header, HeaderContainer, LinkNews } from './AppBar.styled';
 
 const AppBarContainer = () => {
   const { t } = useTranslation(['header']); //react-i18next
@@ -45,19 +37,6 @@ const AppBarContainer = () => {
       </Container>
     </Header>
   );
-
-  /*  const { scrollY } = useScrollPosition();
-
-  return (
-    <Header role="banner" scrolledMobile={scrollY >= 120} scrolledTablet={scrollY >= 70}>
-      <Container>
-        <HeaderContainer>
-          <Logo />
-          <Navigation />
-        </HeaderContainer>
-      </Container>
-    </Header>
-  ); */
 };
 
 export default AppBarContainer;

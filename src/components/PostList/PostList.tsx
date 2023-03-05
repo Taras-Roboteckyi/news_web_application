@@ -1,6 +1,6 @@
 import * as React from 'react';
-
 import { useEffect, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 import { toast } from 'react-toastify';
@@ -36,22 +36,25 @@ import { Basic } from './PostList.styled';
 const PostList = () => {
   const isLoggedIn = useAppSelector(authSelectors.getIsLoggedIn);
   const pageRedux = useAppSelector(PostsSelectors.getPage);
-  const dispatch = useAppDispatch();
-
   const data = useAppSelector(PostsSelectors.getPosts);
   const loadingAPI = useAppSelector(PostsSelectors.getLoading);
 
+  const dispatch = useAppDispatch();
+
   const [page, setPage] = useState(pageRedux);
   const [loading, setLoading] = useState(false); //mui state
+
   const { t } = useTranslation(['news']); //react-i18next
 
-  /* const skipPage = 10; */
+  const skipPage = 10;
   const dataLimit = data.length > 0 && data.length < 150;
 
+  /////////////Get a request for posts//////////////
   useEffect(() => {
     dispatch(fetchPosts(page));
   }, [dispatch, page]);
 
+  ////////////Delete Post/////////////////
   const onDeletePosts = id => {
     dispatch(deletePosts(id));
 
@@ -59,13 +62,11 @@ const PostList = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  console.log('data.length', data.length);
-  console.log('data', data);
-  console.log('page', page);
 
+  ////////////Uploading More Posts/////////////////
   const handleClickLoadMore = () => {
     setLoading(true);
-    setPage(prevPage => prevPage + 10);
+    setPage(prevPage => prevPage + skipPage);
     dispatch(addPage(page));
     setTimeout(() => {
       setLoading(false);

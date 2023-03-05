@@ -3,17 +3,14 @@ import { useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-/* import { useDispatch } from 'react-redux'; */
-import { useAppDispatch } from '../../hooks/reduxHooks';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-/* import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button'; */
-/* import Box from '@mui/material/Box'; */
+
 import { Grid, TextField, Button } from '@mui/material';
 
+import { useAppDispatch } from '../../hooks/reduxHooks';
 import { createProfile } from '../../redux/authorization/auth-slice';
+
 import { InputPassword } from './Form.styled';
 
 interface FormElements extends HTMLFormControlsCollection {
@@ -41,7 +38,6 @@ export default function LoginForm() {
   const { t } = useTranslation(['auth']);
 
   const handleInputChange = event => {
-    /* console.log('event.currentTarget', event.currentTarget); */
     const { name, value } = event.currentTarget;
     setFormValues({
       ...formValues,
@@ -51,14 +47,7 @@ export default function LoginForm() {
 
   const handleSubmit = (event: React.FormEvent<YourFormElement>) => {
     event.preventDefault();
-    /* console.log(formValues); */
-    /* console.log(event.currentTarget.elements.usernameInput.value); */
-    /* const contact = { name }; */
-    /*   const fetchContacts = await contactShelfAPI.fetchContacts(); */
-    //console.log(fetchContacts);
-    /*  const isContact = fetchContacts.find(
-      ({ name }) => name.toLowerCase() === contact.name.toLowerCase(),
-    ); */
+
     const { userName, password } = formValues;
 
     if (userName.toLowerCase() === 'admin' && password.toLowerCase() === '12345') {

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import Box from '@mui/material/Box';
 
-/* color: ${props => (props.whiteColor ? 'white' : '#f3f5f7')}; */
+import Box from '@mui/material/Box';
 
 export const BoxContainer = styled(Box)`
   display: flex;

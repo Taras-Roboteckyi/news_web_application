@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 
 import { BoxContainer } from './ProfilePage.styled';
 
-export default function ProfilePage() {
+export function ProfilePage() {
   const { t } = useTranslation(['auth']); //react-i18next
 
   return (

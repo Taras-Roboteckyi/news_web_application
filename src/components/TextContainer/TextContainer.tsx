@@ -2,25 +2,10 @@ import * as React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import {
-  Box,
-  Paper,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Avatar,
-  IconButton,
-  Grid,
-  Typography,
-} from '@mui/material';
-
-/* import { createStyles, makeStyles } from '@mui/styles'; */
+import { Box, Typography } from '@mui/material';
 
 import { TextListPages } from './TextListPages/TextListPages';
 import { TextListLinks } from './TextListLinks/TextListLinks';
-
-import { LiItem } from './TextContainer.styled';
 import { TextList } from './TextList/TextList';
 
 export const TextContainer = () => {

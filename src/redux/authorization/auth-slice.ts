@@ -1,22 +1,20 @@
-import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
-/* import authOperations from './auth-operations'; */
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface UserState { userName: string, password: string}
-
-interface AuthState {
-  user: UserState,
-
-  isLoggedIn: boolean,
- /*  isFetchingCurrentUser: boolean,
-  isReducerSpinner: boolean, */
+interface UserState {
+  userName: string;
+  password: string;
 }
 
-const initialState:AuthState = {
+interface AuthState {
+  user: UserState;
+
+  isLoggedIn: boolean;
+}
+
+const initialState: AuthState = {
   user: { userName: '', password: '' },
 
   isLoggedIn: false,
-  /* isFetchingCurrentUser: false,
-  isReducerSpinner: false, */
 };
 
 const authSlice = createSlice({
@@ -27,7 +25,7 @@ const authSlice = createSlice({
       state.user = { ...action.payload };
       state.isLoggedIn = true;
     },
-     logOut(state) {
+    logOut(state) {
       state.user = { userName: '', password: '' };
       state.isLoggedIn = false;
     },

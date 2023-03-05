@@ -2,9 +2,7 @@ import * as React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { List, ListItem, ListItemText, Typography } from '@mui/material';
-
-/* import { createStyles, makeStyles } from '@mui/styles'; */
+import { List, ListItem, Typography } from '@mui/material';
 
 export const TextList = ({ textItem }) => {
   const { t } = useTranslation(['main']);

@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 
 import { BoxContainer } from './LoginPage.styled';
 
-export default function LoginPage() {
+export function LoginPage() {
   const { t } = useTranslation(['auth']); //react-i18next
 
   return (
