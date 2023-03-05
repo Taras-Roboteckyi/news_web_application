@@ -1,4 +1,7 @@
-export const getPosts = state => state.news.items.posts;
+import type { RootState } from '../store';
+
+export const getPosts = (state: RootState) => state.news.items.posts;
+export const getLoading = (state: RootState) => state.news.items.loading;
 /* export const getFilter = state => state.contacts.filter; */
 
 /* export const getVisibleItems = state => {

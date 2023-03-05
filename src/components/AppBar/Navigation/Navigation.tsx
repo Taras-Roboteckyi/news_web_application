@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+
 import { Translation } from 'react-i18next';
 
 import { authSelectors } from '../../../redux/authorization';

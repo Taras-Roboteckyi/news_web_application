@@ -8,6 +8,7 @@
     "error": "Username or password entered incorrectly"
   },
   "profile": {
-    "paragraph": "Hello! Thank you for the authorization. Glad to see you again on our app."
+    "paragraph": "Hello! Thank you for the authorization. Glad to see you again on our app.",
+    "text": "Now you can use a special option - delete news in the 'News' section."
   }
 }

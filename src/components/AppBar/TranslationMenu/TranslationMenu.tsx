@@ -17,6 +17,7 @@ import flagIconUK from '../../../images/flag_ukraine.png';
 import { LanguageContainer, NameLanguage } from './TranslationMenu.styled';
 
 const LocalStorageKey = 'lng';
+const LanguageKey = 'en';
 
 export const TranslationMenu = () => {
   const { t, i18n } = useTranslation(); //react-i18next
@@ -33,8 +34,8 @@ export const TranslationMenu = () => {
   }, [age]); */
 
   if (localStorage.getItem(LocalStorageKey) === null) {
-    localStorage.setItem(LocalStorageKey, JSON.stringify('en'));
-    setAge('en');
+    localStorage.setItem(LocalStorageKey, JSON.stringify(LanguageKey));
+    setAge(LanguageKey);
   }
   /*  const onClickLanguageChange = (e: any) => {
     const language = e.target.value;
@@ -107,14 +108,6 @@ export const TranslationMenu = () => {
           </MenuItem>
         </Select>
       </FormControl>
-
-      {/* <button onClick={changeLanguage('en')}>English</button>
-      <button onClick={changeLanguage('uk')}>Ukrainian</button> */}
-      {/*   <div className="paraStyle">
-        {t('line1')} <br />
-        {t('line2')} <br />
-        {t('line3')} <br />
-      </div> */}
     </LanguageContainer>
   );
 };

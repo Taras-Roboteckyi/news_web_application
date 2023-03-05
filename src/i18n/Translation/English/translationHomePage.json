@@ -4,7 +4,7 @@
   "pages": {
     "paragraph": "It can display the following pages:",
     "item1": "/ - a main page, the 'Breaking news' logo",
-    "item2": "/news - a page with news. Mock data was used from the site https://dummyjson.com/. On this page, the 'upload more' button was implemented. When you click on it, the posts are uploaded, and there is also the possibility to delete news",
+    "item2": "/news - a page with news. Mock data was used from the site https://dummyjson.com/. On this page, the 'upload more' button was implemented. When you click on it, the posts are uploaded, and there is also the possibility to delete news if the user is authorized",
     "item3": "/profile - a page with arbitrary text that is not accessible without authorization",
     "item4": "/login - a registration page with a login form that is accessible without authorization"
   },

@@ -1,34 +1,13 @@
 import * as React from 'react';
-/* import { useSelector, useDispatch } from 'react-redux'; */
-import { useEffect, useState /* , useRef  */ } from 'react';
 
-import { PostsSelectors, fetchPosts, deletePosts } from '../../redux/posts';
-/* import { fetchPosts, deletePosts } from '../../redux/posts'; */
-
-import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-/* import ContactListItem from './PostListItem/PostListItem'; */
-
-import { Basic } from './PostList.styled';
-
-/* import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box'; */
-/* import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar'; */
-/* import ListItemIcon from '@mui/material/ListItemIcon'; */
-/* import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton'; */
-/* import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox'; */
 import LoadingButton from '@mui/lab/LoadingButton';
-/* import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography'; */
+
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -43,37 +22,33 @@ import {
   Typography,
 } from '@mui/material';
 
-/* import { FolderIcon, DeleteIcon } from '@mui/icons-material'; */
+import { authSelectors } from '../../redux/authorization';
+
+import { PostsSelectors, fetchPosts, deletePosts } from '../../redux/posts';
+
+import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
+
+import AppLoader from '../Loader/Loader';
+
+import { Basic } from './PostList.styled';
 
 const PostList = () => {
+  const isLoggedIn = useAppSelector(authSelectors.getIsLoggedIn);
   const dispatch = useAppDispatch();
-  /*  const nameUser = useSelector(authSelectors.getUserName); */
+
   const data = useAppSelector(PostsSelectors.getPosts);
-  /* const data = useSelector(PostsSelectors.getPosts); */
-  /*  const dispatch = useDispatch(); */
+  const loadingAPI = useAppSelector(PostsSelectors.getLoading);
+
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false); //mui state
-  /* const [dense, setDense] = useState(false); */ //mui state
-  /* const [secondary, setSecondary] = useState(false); */ //mui state
-  /*  console.log('secondary', secondary); */
-  /* const data = useSelector(state => state.items); */
-  /* console.log(data); */
+  const { t } = useTranslation(['news']); //react-i18next
+
   const skipPage = 10;
   const dataLimit = data.length > 0 && data.length < 150;
 
   useEffect(() => {
     dispatch(fetchPosts(page));
   }, [dispatch, page]);
-
-  /* const generate = (element: React.ReactElement) => {
-    return data.map(({ id, body }) =>
-      React.cloneElement(element, {
-        key: id,
-        primary: body,
-      }),
-    );
-  }; */
-  /* console.log('generate', generate); */
 
   const onDeletePosts = id => {
     dispatch(deletePosts(id));
@@ -82,8 +57,9 @@ const PostList = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  /*  console.log('data.length', data.length);
-  console.log('data', data); */
+  console.log('data.length', data.length);
+  console.log('data', data);
+  console.log('page', page);
 
   const handleClickLoadMore = () => {
     setLoading(true);
@@ -96,13 +72,15 @@ const PostList = () => {
   return (
     <Basic>
       <Grid item xs={12} md={6}>
-        {data.length > 0 ? (
+        {loadingAPI ? (
+          <AppLoader />
+        ) : data.length > 0 ? (
           <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-            List of latest news
+            {t('paragraph')}
           </Typography>
         ) : (
           <Typography sx={{ mt: 4, mb: 2, color: 'red' }} variant="h6" component="div">
-            Sorry, you deleted all posts
+            {t('error')}
           </Typography>
         )}
 
@@ -129,20 +107,22 @@ const PostList = () => {
                   },
                 }}
                 secondaryAction={
-                  <IconButton
-                    edge="end"
-                    aria-label="delete"
-                    sx={{
-                      '&:hover': {
-                        backgroundColor: '#ee6b6e',
-                      },
-                    }}
-                    onClick={() => {
-                      onDeletePosts(id);
-                    }}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
+                  isLoggedIn && (
+                    <IconButton
+                      edge="end"
+                      aria-label="delete"
+                      sx={{
+                        '&:hover': {
+                          backgroundColor: '#ee6b6e',
+                        },
+                      }}
+                      onClick={() => {
+                        onDeletePosts(id);
+                      }}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  )
                 }
               >
                 <ListItemAvatar>
@@ -150,14 +130,14 @@ const PostList = () => {
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText id={id} primary={body} />
+                <ListItemText primary={body} />
               </ListItem>
             );
           })}
         </List>
         {dataLimit && (
           <LoadingButton onClick={handleClickLoadMore} loading={loading} variant="contained">
-            <span>Load more</span>
+            <span>{t('button')}</span>
           </LoadingButton>
         )}
       </Grid>

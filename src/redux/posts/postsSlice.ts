@@ -17,34 +17,55 @@ interface TPayload {
   skip?: number;
   total?: number;
 }
-const initialState = {
+
+const PostsState = {
   posts: [],
-  /* loading, */
 } as TPayload;
+
+const initialState = Object.assign({}, PostsState, { loading: false });
 
 const itemsReducer = createSlice({
   name: 'items',
   initialState,
-  reducers: {
-    /*  [deleteContacts.fulfilled](state, action) {
-      //console.log(action);
-      return state.filter(({ id }) => {
-        //console.log(id);
-        return id !== action.meta.arg;
-      });
-    }, */
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
-
+      .addCase(fetchPosts.pending, state => {
+        state.loading = true;
+      })
       .addCase(fetchPosts.fulfilled, (state, { payload }: PayloadAction<TPayload>) => {
+        /* const result = state.posts.filter(o1 => !payload.posts.every(o2 => o1.id === o2.id)); */
+        /* const leng = payload.posts.length === payload.posts.length;
+        const result =
+          leng &&
+          payload.posts.every(element_1 =>
+            payload.posts.some(
+              element_2 => element_1.id === element_2.id && element_1.id === element_2.id,
+            ),
+          );
+
+        state.posts =
+          state.posts.length === 0 ? [...payload.posts] : [...state.posts, ...payload.posts];
+
+        console.log('reducer result', result); */
+
         state.posts = [...state.posts, ...payload.posts];
+        state.loading = false;
+      })
+      .addCase(fetchPosts.rejected, state => {
+        state.loading = false;
+      })
+      .addCase(deletePosts.pending, state => {
+        /* state.loading = true; */
       })
       .addCase(deletePosts.fulfilled, (state, { payload }) => {
         state.posts = state.posts.filter(({ id }) => {
-          //console.log(id);
           return id !== payload.id;
         });
+        /* state.loading = false; */
+      })
+      .addCase(deletePosts.rejected, state => {
+        /* state.loading = false; */
       });
   },
 });

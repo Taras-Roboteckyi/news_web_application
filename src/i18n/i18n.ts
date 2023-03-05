@@ -11,18 +11,8 @@ import translationUkrainianHomePage from './Translation/Ukrainian/translationHom
 import translationEnglishAuth from './Translation/English/translationAuth.json';
 import translationUkrainianAuth from './Translation/Ukrainian/translationAuth.json';
 
-//Import translation2 file
-/* import translationEnglishSecondFile from './Translation/English/translation2.json'; */
-
-//---Using translation
-/* const resources = {
-  en: {
-    translation: translationEnglish,
-  },
-  uk: {
-    translation: translationUkrainian,
-  },
-}; */
+import translationEnglishNewsPage from './Translation/English/translationNewsPage.json';
+import translationUkrainianNewsPage from './Translation/Ukrainian/translationNewsPage.json';
 
 //---Using different namespaces
 const resources = {
@@ -30,11 +20,13 @@ const resources = {
     header: translationEnglishHeader,
     main: translationEnglishHomePage,
     auth: translationEnglishAuth,
+    news: translationEnglishNewsPage,
   },
   uk: {
     header: translationUkrainianHeader,
     main: translationUkrainianHomePage,
     auth: translationUkrainianAuth,
+    news: translationUkrainianNewsPage,
   },
 };
 

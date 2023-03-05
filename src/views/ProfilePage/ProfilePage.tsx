@@ -32,6 +32,16 @@ export default function ProfilePage() {
           >
             {t('profile.paragraph')}
           </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: 20,
+
+              textAlign: 'center',
+            }}
+          >
+            {t('profile.text')}
+          </Typography>
         </BoxContainer>
       </Container>
 
