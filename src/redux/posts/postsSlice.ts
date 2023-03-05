@@ -22,34 +22,29 @@ const PostsState = {
   posts: [],
 } as TPayload;
 
-const initialState = Object.assign({}, PostsState, { loading: false });
+const page: number = 0;
+
+const initialState = Object.assign({}, PostsState, { loading: false }, { page });
 
 const itemsReducer = createSlice({
   name: 'items',
   initialState,
-  reducers: {},
+  reducers: {
+    addPage(state) {
+      state.page += 10;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchPosts.pending, state => {
         state.loading = true;
       })
       .addCase(fetchPosts.fulfilled, (state, { payload }: PayloadAction<TPayload>) => {
-        /* const result = state.posts.filter(o1 => !payload.posts.every(o2 => o1.id === o2.id)); */
-        /* const leng = payload.posts.length === payload.posts.length;
-        const result =
-          leng &&
-          payload.posts.every(element_1 =>
-            payload.posts.some(
-              element_2 => element_1.id === element_2.id && element_1.id === element_2.id,
-            ),
-          );
+        const result = payload.posts.filter(o1 => !state.posts.some(o2 => o1.id === o2.id));
 
-        state.posts =
-          state.posts.length === 0 ? [...payload.posts] : [...state.posts, ...payload.posts];
+        console.log('reducer result', result);
+        state.posts = state.posts.length === 0 ? [...payload.posts] : [...state.posts, ...result];
 
-        console.log('reducer result', result); */
-
-        state.posts = [...state.posts, ...payload.posts];
         state.loading = false;
       })
       .addCase(fetchPosts.rejected, state => {
@@ -70,7 +65,7 @@ const itemsReducer = createSlice({
   },
 });
 
-/* export const { addItems, deleteItems } = itemsReducer.actions; */
+export const { addPage } = itemsReducer.actions;
 
 /* const filterReducer = createSlice({
   name: 'filter',

@@ -25,6 +25,7 @@ import {
 import { authSelectors } from '../../redux/authorization';
 
 import { PostsSelectors, fetchPosts, deletePosts } from '../../redux/posts';
+import { addPage } from '../../redux/posts/postsSlice';
 
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
 
@@ -34,16 +35,17 @@ import { Basic } from './PostList.styled';
 
 const PostList = () => {
   const isLoggedIn = useAppSelector(authSelectors.getIsLoggedIn);
+  const pageRedux = useAppSelector(PostsSelectors.getPage);
   const dispatch = useAppDispatch();
 
   const data = useAppSelector(PostsSelectors.getPosts);
   const loadingAPI = useAppSelector(PostsSelectors.getLoading);
 
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(pageRedux);
   const [loading, setLoading] = useState(false); //mui state
   const { t } = useTranslation(['news']); //react-i18next
 
-  const skipPage = 10;
+  /* const skipPage = 10; */
   const dataLimit = data.length > 0 && data.length < 150;
 
   useEffect(() => {
@@ -63,7 +65,8 @@ const PostList = () => {
 
   const handleClickLoadMore = () => {
     setLoading(true);
-    setPage(prevPage => prevPage + skipPage);
+    setPage(prevPage => prevPage + 10);
+    dispatch(addPage(page));
     setTimeout(() => {
       setLoading(false);
     }, 2000);
