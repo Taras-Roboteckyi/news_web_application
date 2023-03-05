@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './i18n/i18n';
 
 import App from './App';
@@ -19,12 +19,12 @@ const root = createRoot(container!); // createRoot(container!) if you use TypeSc
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={Constants}>
           <GlobalStyles />
           <App />
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </PersistGate>
   </Provider>,
 );
