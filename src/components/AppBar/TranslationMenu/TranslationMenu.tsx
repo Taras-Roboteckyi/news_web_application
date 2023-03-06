@@ -16,15 +16,15 @@ const LanguageKey = 'en';
 
 export const TranslationMenu = () => {
   const { t, i18n } = useTranslation(); //react-i18next
-  const [age, setAge] = useState(localStorage.getItem(LocalStorageKey) || '');
+  const [langaugeLS, setLangaugeLS] = useState(localStorage.getItem(LocalStorageKey) || '');
 
   if (localStorage.getItem(LocalStorageKey) === null) {
-    localStorage.setItem(LocalStorageKey, JSON.stringify(LanguageKey));
-    setAge(LanguageKey);
+    localStorage.setItem(LocalStorageKey, LanguageKey);
+    setLangaugeLS(LanguageKey);
   }
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setLangaugeLS(event.target.value as string);
     const language = event.target.value;
 
     localStorage.setItem(LocalStorageKey, language);
@@ -37,7 +37,7 @@ export const TranslationMenu = () => {
         <Select
           labelId="id-select-label"
           id="id-select"
-          value={age}
+          value={langaugeLS}
           label="Age"
           onChange={handleChange}
           autoWidth
